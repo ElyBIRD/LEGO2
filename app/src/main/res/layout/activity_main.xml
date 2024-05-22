@@ -10,14 +10,14 @@
         android:id="@+id/kr_btn"
         android:layout_width="180dp"
         android:layout_height="150dp"
+        android:contentDescription="kr_brl"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.069"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.345"
-        app:srcCompat="@drawable/resource__"
-        android:contentDescription="kr_brl" />
+        app:srcCompat="@drawable/resource__" />
 
     <ImageButton
         android:id="@+id/brl_btn"

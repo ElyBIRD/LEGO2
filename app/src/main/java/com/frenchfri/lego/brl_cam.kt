@@ -24,18 +24,16 @@ class brl_cam : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_brl_cam)
 
-        // XML 레이아웃에서 ImageView 및 Button 참조
         imageView = findViewById(R.id.imageView)
         openCameraButton = findViewById(R.id.openCameraButton)
 
-        // 카메라 버튼 클릭 이벤트 처리
         openCameraButton.setOnClickListener {
-            // 카메라 권한 확인 및 요청
+
             checkCameraPermission()
         }
     }
 
-    // 카메라 권한 확인 및 요청
+
     private fun checkCameraPermission() {
         // 카메라 권한이 부여되었는지 확인
         if (ContextCompat.checkSelfPermission(
@@ -50,7 +48,7 @@ class brl_cam : AppCompatActivity() {
                 CAMERA_PERMISSION_CODE
             )
         } else {
-            // 권한이 이미 허용되었다면 사진 촬영 진행
+            // 권한이 허용되었다면 사진 촬영 진행
             dispatchTakePictureIntent()
         }
     }
@@ -74,8 +72,7 @@ class brl_cam : AppCompatActivity() {
                 // 권한이 허용되면 사진 촬영 진행
                 dispatchTakePictureIntent()
             } else {
-                // 권한이 거부되었을 때 처리
-                // (예: 사용자에게 권한이 필요하다는 메시지 표시)
+
             }
         }
     }
