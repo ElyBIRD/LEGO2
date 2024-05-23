@@ -20,16 +20,15 @@ class Lobby : AppCompatActivity() {
             startActivity(intent)
         }
 
-
-        val brl_btn : ImageButton = findViewById(R.id.brl_btn)
+        val brl_btn = findViewById<ImageButton>(R.id.brl_btn)
         brl_btn.setOnClickListener {
-            val intent = Intent(this, brl_btn::class.java)
+            val intent = Intent(this, brl_kr::class.java)
             startActivity(intent)
         }
 
-        val kr_btn : ImageButton = findViewById(R.id.kr_btn)
+        val kr_btn = findViewById<ImageButton>(R.id.kr_btn)
         kr_btn.setOnClickListener {
-            val intent = Intent(this, kr_btn::class.java)
+            val intent = Intent(this, kr_brl::class.java)
             startActivity(intent)
         }
     }
