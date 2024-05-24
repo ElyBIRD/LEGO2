@@ -1,12 +1,14 @@
 package com.frenchfri.lego
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
 import android.widget.Button
 import android.widget.TextView
 import android.widget.ToggleButton
+import androidx.appcompat.app.AppCompatActivity
+import java.util.*
 
-class brl_kr : AppCompatActivity() {
+class brl_kr : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     private lateinit var brl_tbtn1: ToggleButton
     private lateinit var brl_tbtn2: ToggleButton
@@ -16,6 +18,10 @@ class brl_kr : AppCompatActivity() {
     private lateinit var brl_tbtn6: ToggleButton
     private lateinit var translate_result: TextView
     private lateinit var enter_btn: Button
+    private lateinit var backspace_btn: Button
+    private lateinit var voice_btn: Button
+    private lateinit var result_kr_tv: TextView
+    private lateinit var tts: TextToSpeech
 
     private val translatedResultBuilder = StringBuilder()
 
@@ -31,12 +37,38 @@ class brl_kr : AppCompatActivity() {
         brl_tbtn6 = findViewById(R.id.brl_tbtn6)
         translate_result = findViewById(R.id.translate_result)
         enter_btn = findViewById(R.id.enter_btn)
+        backspace_btn = findViewById(R.id.backspacebtn)
+        voice_btn = findViewById(R.id.voice_btn)
+        result_kr_tv = findViewById(R.id.result_kr_tv)
 
         enter_btn.setOnClickListener {
-
             addNewBrailleCharacter()
             resetToggleButtons()
         }
+
+        backspace_btn.setOnClickListener {
+            backspaceTranslation()
+        }
+
+        voice_btn.setOnClickListener {
+            speakOut()
+        }
+
+        tts = TextToSpeech(this, this)
+    }
+
+    override fun onInit(status: Int) {
+        if (status == TextToSpeech.SUCCESS) {
+            val result = tts.setLanguage(Locale.KOREAN)
+            if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
+            }
+        } else {
+        }
+    }
+
+    private fun speakOut() {
+        val text = result_kr_tv.text.toString()
+        tts.speak(text, TextToSpeech.QUEUE_FLUSH, null, "")
     }
 
     private fun addNewBrailleCharacter() {
@@ -62,6 +94,14 @@ class brl_kr : AppCompatActivity() {
         brl_tbtn6.isChecked = false
     }
 
+    private fun backspaceTranslation() {
+        if (translatedResultBuilder.isNotEmpty()) {
+            val lastIndex = translatedResultBuilder.length - 1
+            translatedResultBuilder.deleteCharAt(lastIndex)
+            translate_result.text = translatedResultBuilder.toString()
+        }
+    }
+
     private fun brailleChar(dots: List<Int>): Char {
         val base = 0x2800
         var offset = 0
@@ -70,5 +110,15 @@ class brl_kr : AppCompatActivity() {
         }
         return (base + offset).toChar()
     }
+
+    override fun onDestroy() {
+
+        if (tts.isSpeaking) {
+            tts.stop()
+        }
+        tts.shutdown()
+        super.onDestroy()
+    }
 }
+
 
