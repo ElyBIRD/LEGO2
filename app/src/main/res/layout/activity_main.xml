@@ -7,40 +7,43 @@
     tools:context=".Lobby">
 
     <ImageButton
+        android:id="@+id/brl_btn"
+        android:layout_width="135dp"
+        android:layout_height="135dp"
+        android:contentDescription="brl_kr"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.786"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.311"
+        app:srcCompat="@drawable/_578528_200" />
+
+    <ImageButton
         android:id="@+id/kr_btn"
-        android:layout_width="180dp"
-        android:layout_height="150dp"
+        android:layout_width="135dp"
+        android:layout_height="135dp"
         android:contentDescription="kr_brl"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.069"
+        app:layout_constraintHorizontal_bias="0.213"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.345"
+        app:layout_constraintVertical_bias="0.312"
         app:srcCompat="@drawable/resource__" />
 
     <ImageButton
-        android:id="@+id/brl_btn"
-        android:layout_width="180dp"
-        android:layout_height="150dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.93"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.344"
-        app:srcCompat="@drawable/_578528_200"
-        android:contentDescription="brl_kr" />
-
-    <Button
         android:id="@+id/cam_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:text="점자사진 촬영"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.207" />
+        app:layout_constraintVertical_bias="0.077"
+        app:srcCompat="@drawable/cam_icon" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

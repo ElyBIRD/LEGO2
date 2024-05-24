@@ -4,7 +4,6 @@ package com.frenchfri.lego
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 
@@ -14,7 +13,7 @@ class Lobby : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val cam_button = findViewById<Button>(R.id.cam_button)
+        val cam_button = findViewById<ImageButton>(R.id.cam_button)
         cam_button.setOnClickListener {
             val intent = Intent(this, brl_cam::class.java)
             startActivity(intent)
