@@ -35,7 +35,7 @@ class brl_kr : AppCompatActivity(), TextToSpeech.OnInitListener {
         brl_tbtn4 = findViewById(R.id.brl_tbtn4)
         brl_tbtn5 = findViewById(R.id.brl_tbtn5)
         brl_tbtn6 = findViewById(R.id.brl_tbtn6)
-        translate_result = findViewById(R.id.translate_result)
+        translate_result = findViewById(R.id.translate_tv)
         enter_btn = findViewById(R.id.enter_btn)
         backspace_btn = findViewById(R.id.backspacebtn)
         voice_btn = findViewById(R.id.voice_btn)
