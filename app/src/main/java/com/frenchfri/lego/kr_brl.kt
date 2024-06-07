@@ -10,9 +10,10 @@ class kr_brl : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_kr_brl)
 
-        val settingsButton = findViewById<ImageButton>(R.id.settings_button)
-        settingsButton.setOnClickListener {
-            val intent = Intent(this, user_setting::class.java)
+        val options = findViewById<ImageButton>(R.id.options_btn)
+
+        options.setOnClickListener {
+            val intent = Intent(this, Options::class.java)
             startActivity(intent)
         }
     }

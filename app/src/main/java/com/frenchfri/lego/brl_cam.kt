@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.provider.MediaStore
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -19,6 +20,7 @@ class brl_cam : AppCompatActivity() {
 
     private lateinit var imageView: ImageView
     private lateinit var openCameraButton: Button
+    private lateinit var optionsButton: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,10 +28,16 @@ class brl_cam : AppCompatActivity() {
 
         imageView = findViewById(R.id.imageView)
         openCameraButton = findViewById(R.id.openCameraButton)
+        optionsButton = findViewById(R.id.options_btn)
 
         openCameraButton.setOnClickListener {
 
             checkCameraPermission()
+        }
+
+        optionsButton.setOnClickListener {
+            val intent = Intent(this, Options::class.java)
+            startActivity(intent)
         }
     }
 

@@ -1,8 +1,10 @@
 package com.frenchfri.lego
 
+import android.content.Intent
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.ToggleButton
 import androidx.appcompat.app.AppCompatActivity
@@ -55,6 +57,14 @@ class brl_kr : AppCompatActivity(), TextToSpeech.OnInitListener {
         }
 
         tts = TextToSpeech(this, this)
+
+        val options = findViewById<ImageButton>(R.id.options_btn)
+
+        options.setOnClickListener {
+            val intent = Intent(this, Options::class.java)
+            startActivity(intent)
+        }
+
     }
 
     override fun onInit(status: Int) {
@@ -119,6 +129,7 @@ class brl_kr : AppCompatActivity(), TextToSpeech.OnInitListener {
         tts.shutdown()
         super.onDestroy()
     }
+
 }
 
 
